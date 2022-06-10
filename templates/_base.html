@@ -1,32 +1,152 @@
+{% load static %}
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>{% block page_title %}{% endblock %}</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static 'img/icon.png' %}">
+
+    <!-- ************************* CSS Files ************************* -->
+
+    <link rel="stylesheet" href="{% static 'css/_base.css' %}">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
+
+    <!-- style css -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+{#    <!-- Bootstrap CSS -->#}
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"#}
+{#          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">#}
 
 </head>
-<body>
 
-{% if user.is_authenticated %}
-    <span>Hello {{ user.email }}</span> | <a href="{% url 'account_logout' %}">logout</a>
-{% else %}
-    <a href="{% url 'account_login' %}">login</a> | <a href="{% url 'account_signup' %}">sign up</a>
-{% endif %}
+<body dir='rtl'>
+
+{#{% if user.is_authenticated %}#}
+{#    <span>Hello {{ user.email }}</span> | <a href="{% url 'account_logout' %}">logout</a>#}
+{#{% else %}#}
+{#    <a href="{% url 'account_login' %}">login</a> | <a href="{% url 'account_signup' %}">sign up</a>#}
+{#{% endif %}#}
+
+<!-- Header Start -->
+<header class="header">
+    <div class="header-inner fixed-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-9 col-lg-8 col-5 col-xs-0 col-none col-sm-block p-0">
+                    <nav class="main-navigation">
+                        <div class="site-branding" style="margin-right: 30px;">
+                            <a href="{% url 'product_list' %}" class="logo">
+                                <figure class="logo--normal d-none d-sm-block">
+                                    <img class="px-5" src="assets/img/codingyar_logo.png" style="max-height: 50px; margin-bottom: -15px;" alt="Logo">
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="mainmenu-nav d-none d-lg-block w-100 pr-3">
+                            <ul class="mainmenu d-lg-flex jusity-content-end jusity-content-lg-start pt-4">
+                                <li class="mainmenu__item menu-item-has-children active">
+                                    <a href="{% url 'product_list' %}" class="mainmenu__link">
+                                        <span class="mm-text">خانه</span>
+                                    </a>
+                                </li>
+                                <li class="mainmenu__item menu-item-has-children">
+                                    <a href="Blog.html" class="mainmenu__link">
+                                        <span class="mm-text">وبلاگ</span>
+                                    </a>
+                                </li>
+                                <li class="mainmenu__item menu-item-has-children">
+                                    <a href="#" class="mainmenu__link">
+                                        <span class="mm-text">صفحات</span>
+                                    </a>
+                                 </li>
+                                <li class="mainmenu__item">
+                                    <a href="contact-us.html" class="mainmenu__link">
+                                        <span class="mm-text">تماس با ما</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-sm-7 col-12 p-0">
+                    <ul class="header-toolbar">
+                        <li class="header-toolbar__item">
+                            <a href="wishlist.html" class="header-toolbar__btn mx-4">
+                                <i class="flaticon flaticon-like"></i>
+                            </a>
+                        </li>
+                        <li class="header-toolbar__item mini-cart-item">
+                            <a href="#miniCart" class="header-toolbar__btn toolbar-btn mini-cart-btn">
+                                <i class="flaticon flaticon-shopping-cart"></i>
+                                <sup class="mini-cart-count">2</sup>
+                            </a>
+                        </li>
+                        <li class="header-toolbar__item user-info">
+                            <a href="my-account.html" class="header-toolbar__btn">
+                                <i class="flaticon flaticon-user"></i>
+                            </a>
+                            <ul class="user-info-menu">
+                                <li>
+                                    <a class="text-right" href="my-account.html">حساب کاربری</a>
+                                </li>
+                                <li>
+                                    <a class="text-right" href="cart.html">سبد خرید</a>
+                                </li>
+                                <li>
+                                    <a class="text-right" href="wishlist.html">علاقه مندی ها</a>
+                                </li>
+                                <li>
+                                    <a class="text-right" href="order-tracking.html">تاریخچه سفارشات</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="header-toolbar__item">
+                            <a href="#searchForm" class="header-toolbar__btn toolbar-btn">
+                                <i class="flaticon flaticon-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="mobile-menu"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header End -->
 
 {% block content %}
 
 {% endblock %}
 
+<!-- ************************* JS Files ************************* -->
+
+<!-- jQuery JS -->
+<script src="{% static 'js/vendor.js' %}"></script>
+
+<!-- Main JS -->
+<script src="{% static 'js/main.js' %}"></script>
+
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"#}
+{#        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"#}
+{#        crossorigin="anonymous"></script>#}
 
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--

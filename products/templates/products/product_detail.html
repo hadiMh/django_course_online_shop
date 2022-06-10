@@ -1,7 +1,437 @@
 {% extends '_base.html' %}
 
 {% block content %}
-    <h1>{{ product.title }}</h1>
-    <p>{{ product.description }}</p>
+    <!-- Main Wrapper Start -->
+    <div class="wrapper">
+        <!-- Breadcrumb area Start -->
+        <div class="breadcrumb-area bg-color ptb--90" data-bg-color="#f6f6f6">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center flex-sm-row flex-column">
+                            <h1 class="page-title">جزئیات محصول «{{ product.title }}»</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb area End -->
 
+        <!-- Main Content Wrapper Start -->
+        <div class="main-content-wrapper">
+            <div class="page-content-inner ptb--80">
+                <div class="container">
+                    <div class="row no-gutters mb--80">
+                        <div class="col-12 col-sm-4 product-main-image d-flex align-content-center">
+                            <img class="m-auto" style="max-height: 400px;" src="https://dkstatics-public.digikala.com/digikala-products/8f34ee9823202d09ee97deb9b1c8e3300a9a24d8_1643265727.jpg?x-oss-process=image/resize,w_1600/quality,q_80" alt="">
+                        </div>
+                        <div class="col-12 col-sm-8 product-main-details mt-md--50">
+                            <div class="product-summary pl-lg--30 pl-md--0 text-right p-4">
+                                <h3 class="product-title mb--20">{{ product.title }}</h3>
+                                <p class="product-short-description mb--20">
+                                    {{ product.description }}
+                                </p>
+                                <div class="my-5 py-5 product-price-wrapper mb--25">
+                                    <span class="money text-success">{{ product.price }} تومان</span>
+                                    <span class="price-separator">-</span>
+                                    <span class="money old-price text-danger">۲۱۰,۰۰۰ تومان</span>
+                                </div>
+                                <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
+                                    <div class="quantity-wrapper d-flex justify-content-start">
+                                        <div class="quantity">
+                                            <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2" onclick="window.location.href='cart.html'">
+                                        اضافه به سبد خرید
+                                    </button>
+                                </div>
+                                <div class="product-footer-meta mt-5 pt-5">
+                                    <p><span class="m-0">دسته بندی ها:</span>
+                                        <a href="shop.html">لباس</a>,
+                                        <a href="shop.html">تابستانی</a>,
+                                        <a href="shop.html">گرم</a>,
+                                        <a href="shop.html">زنانه</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="product-data-tab tab-style-3">
+                                <div class="nav nav-tabs product-data-tab__head" id="product-tab" role="tablist">
+                                    <a class="m-0 product-data-tab__link nav-link active" id="nav-description-tab" data-toggle="tab" href="#nav-description" role="tab" aria-selected="true">
+                                        <span>توضیحات محصول</span>
+                                    </a>
+                                    <a class="m-0 product-data-tab__link nav-link" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-selected="true">
+                                        <span>ویژگی ها</span>
+                                    </a>
+                                    <a class="m-0 product-data-tab__link nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-selected="true">
+                                        <span>نظرات (۱)</span>
+                                    </a>
+                                </div>
+                                <div class="tab-content product-data-tab__content" id="product-tabContent">
+                                    <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
+                                        <div class="product-description text-justify">
+                                            <p>{{ product.description }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane text-right" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
+                                        <div class="table-content table-responsive">
+                                            <table class="table shop_attributes">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>وزن</th>
+                                                        <td>۴۳۰ گرم</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>سایز</th>
+                                                        <td>XL</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>رنگ</th>
+                                                        <td>
+                                                            <a href="shop-sidebar.html">مشکی</a>,
+                                                            <a href="shop-sidebar.html">سبز</a>,
+                                                            <a href="shop-sidebar.html">قرمز</a>,
+                                                            <a href="shop-sidebar.html">نارنجی</a>,
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
+                                        <div class="product-reviews">
+                                            <h3 class="review__title">۱ نظر برای لباس تابستانی</h3>
+                                            <ul class="review__list">
+                                                <li class="review__item">
+                                                    <div class="review__container">
+                                                        <div class="review__text">
+                                                            <div class="d-flex flex-sm-row flex-row">
+                                                                <img src="assets/img/others/comment-1.jpg" alt="Review Avatar" class="review__avatar">
+                                                                <div>
+                                                                    <div class="review__meta">
+                                                                        <strong class="review__author px-4">علی علوی</strong>
+                                                                        <span class="review__dash">-</span>
+                                                                        <span class="review__published-date">۱۲ مرداد ۱۴۰۱</span>
+                                                                    </div>
+                                                                    <div class="product-rating">
+                                                                        <div class="m-0 star-rating star-five">
+                                                                            <span>Rated <strong class="rating">5.00</strong> out of 5</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <p class="review__description text-right px-4">
+                                                                از خرید خودم راضی هستم. واقعا خیلی خوب بسته بندی شده بود و همینطور سر زمان رسید. واقعا نسبت به قیمت خیلی می ارزه.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="review-form-wrapper">
+                                                <div class="row">
+                                                    <div class="border-top py-5 w-100"></div>
+                                                    <div class="col-lg-8 m-auto">
+                                                        <span class="reply-title pull-right">نظر خود را بنویسید</span>
+                                                        <br>
+                                                        <form action="#" class="form text-right">
+                                                            <div class="form-notes mb--20">
+                                                                <p class="my-3"><span class="required">*</span>ایمیل شما برای دیگران نشان داده نمیشود.</p>
+                                                            </div>
+                                                            <div class="form__group mb--10">
+                                                                <label class="form__label d-block" for="email">متن نظر شما<span class="required">*</span></label>
+                                                                <textarea name="review" id="review" class="form__input form__input--textarea"></textarea>
+                                                            </div>
+                                                            <div class="form__group mb--20">
+                                                                <label class="form__label d-block" for="name">نام شما<span class="required">*</span></label>
+                                                                <input type="text" name="name" id="name" class="form__input">
+                                                            </div>
+                                                            <div class="form__group mb--20">
+                                                                <label class="form__label d-block" for="email">ایمیل شما<span class="required">*</span></label>
+                                                                <input type="email" name="email" id="email" class="form__input">
+                                                            </div>
+                                                            <div class="form__group">
+                                                                <div class="form-row">
+                                                                    <div class="col-12">
+                                                                        <input type="submit" value="ارسال" class="btn-submit">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Content Wrapper End -->
+
+        <!-- Footer Start-->
+        <footer class="footer">
+            <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-9 text-center">
+                            <div class="footer-widget mb--50">
+                                <div class="textwidget">
+                                    <img src="assets/img/codingyar_logo.png" alt="Logo">
+                                </div>
+                            </div>
+                            <div class="footer-widget mb--50 pb--1">
+                                <ul class="footer-menu">
+                                    <li><a href="">درباره ما</a></li>
+                                    <li><a href="">قوانین و مقررات</a></li>
+                                    <li><a href="">تماس با ما</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-widget">
+                                Codingyar.com © | all rights reserved
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer End-->
+
+        <!-- Search form Popup Start -->
+        <div class="searchform__popup" id="searchForm">
+            <a href="#" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
+            <div class="searchform__body">
+                <p>Start typing and press Enter to search</p>
+                <form class="searchform">
+                    <input type="text" name="popup-search" id="popup-search" class="searchform__input" placeholder="Search Entire Store...">
+                    <button type="submit" class="searchform__submit"><i class="flaticon flaticon-magnifying-glass-icon"></i></button>
+                </form>
+            </div>
+        </div>
+        <!-- Search form Popup End -->
+
+        <!-- Mini Cart Start -->
+        <aside class="mini-cart" id="miniCart">
+            <div class="mini-cart-wrapper">
+                <a href="" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
+                <div class="mini-cart-inner">
+                    <h3 class="mini-cart__heading mb--40 mb-lg--30 text-right">سبد خرید</h3>
+                    <div class="mini-cart__content">
+                        <ul class="mini-cart__list text-right">
+                            <li class="mini-cart__product d-flex justify-content-between">
+                                <div class="mini-cart__product__image">
+                                    <a href="#">
+                                        <img src="assets/img/products/prod-1-100x100.jpg" alt="products">
+                                    </a>
+                                </div>
+                                <div class="mini-cart__product__content pt-2">
+                                    <span class="mini-cart__product__title d-flex flex-row justify-content-between">
+                                        <a href="#"> محصول سماره یک </a>
+                                        <a href="#" class="">
+                                            &#10060;
+                                        </a>
+                                    </span>
+                                    <span class="mini-cart__product__quantity">
+                                        <span>۴۹,۰۰۰ تومان</span> &#215; <span>۱</span>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="mini-cart__product d-flex justify-content-between">
+                                <div class="mini-cart__product__image">
+                                    <a href="#">
+                                        <img src="assets/img/products/prod-1-100x100.jpg" alt="products">
+                                    </a>
+                                </div>
+                                <div class="mini-cart__product__content pt-2">
+                                    <span class="mini-cart__product__title d-flex flex-row justify-content-between">
+                                        <a href="#"> محصول سماره یک </a>
+                                        <a href="#" class="">
+                                            &#10060;
+                                        </a>
+                                    </span>
+                                    <span class="mini-cart__product__quantity">
+                                        <span>۴۹,۰۰۰ تومان</span> &#215; <span>۱</span>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="mini-cart__product d-flex justify-content-between">
+                                <div class="mini-cart__product__image">
+                                    <a href="#">
+                                        <img src="assets/img/products/prod-1-100x100.jpg" alt="products">
+                                    </a>
+                                </div>
+                                <div class="mini-cart__product__content pt-2">
+                                    <span class="mini-cart__product__title d-flex flex-row justify-content-between">
+                                        <a href="#"> محصول سماره یک </a>
+                                        <a href="#" class="">
+                                            &#10060;
+                                        </a>
+                                    </span>
+                                    <span class="mini-cart__product__quantity">
+                                        <span>۴۹,۰۰۰ تومان</span> &#215; <span>۱</span>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="mini-cart__total">
+                            <span>جمع کل</span>
+                            <span class="ammount">۱۴۸,۰۰۰ تومان</span>
+                        </div>
+                        <div class="mini-cart__buttons">
+                            <a href="cart.html" class="btn btn-fullwidth btn-bg-sand mb--20">مشاهده سبد خرید</a>
+                            <a href="checkout.html" class="btn btn-fullwidth btn-bg-sand">پرداخت</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- Mini Cart End -->
+
+        <!-- Global Overlay Start -->
+        <div class="ShoppingYar-global-overlay"></div>
+        <!-- Global Overlay End -->
+
+        <!-- Qicuk View Modal Start -->
+        <div class="modal fade product-modal" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true"><i class="flaticon flaticon-cross"></i></span>
+                </button>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="ShoppingYar-element-carousel nav-vertical-center"
+                        data-slick-options='{
+                            "slidesToShow": 1,
+                            "slidesToScroll": 1,
+                            "arrows": true,
+                            "prevArrow": {"buttonClass": "slick-btn slick-prev", "iconClass": "fa fa-angle-double-left" },
+                            "nextArrow": {"buttonClass": "slick-btn slick-next", "iconClass": "fa fa-angle-double-right" }
+                        }'
+                        >
+                            <div class="product-image">
+                                <div class="product-image--holder">
+                                    <a href="product-details.html">
+                                        <img src="assets/img/products/prod-9-1.jpg" alt="Product Image" class="primary-image">
+                                    </a>
+                                </div>
+                                <span class="product-badge sale">sale</span>
+                            </div>
+                            <div class="product-image">
+                                <div class="product-image--holder">
+                                    <a href="product-details.html">
+                                        <img src="assets/img/products/prod-9-1.jpg" alt="Product Image" class="primary-image">
+                                    </a>
+                                </div>
+                                <span class="product-badge sale">sale</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="modal-box product-summary">
+                            <div class="product-navigation text-right mb--20">
+                                <a href="#" class="prev"><i class="fa fa-angle-double-left"></i></a>
+                                <a href="#" class="next"><i class="fa fa-angle-double-right"></i></a>
+                            </div>
+                            <div class="product-rating d-flex mb--20">
+                                <div class="star-rating star-three">
+                                    <span>Rated <strong class="rating">5.00</strong> out of 5</span>
+                                </div>
+                            </div>
+                            <h3 class="product-title mb--20">لباس تابستانی</h3>
+                            <p class="product-short-description mb--25">Donec accumsan auctor iaculis. Sed suscipit arcu ligula, at egestas magna molestie a. Proin ac ex maximus, ultrices justo eget, sodales orci. Aliquam egestas libero ac turpis pharetra, in vehicula lacus scelerisque. Vestibulum ut sem laoreet, feugiat tellus at, hendrerit arcu.</p>
+                            <div class="product-price-wrapper mb--25">
+                                <span class="money">$200.00</span>
+                                <span class="price-separator">-</span>
+                                <span class="money">$400.00</span>
+                            </div>
+                            <form action="#" class="variation-form mb--30">
+                                <div class="product-color-variations d-flex align-items-center mb--20">
+                                    <p class="variation-label">Color:</p>
+                                    <div class="product-color-variation variation-wrapper">
+                                        <div class="variation">
+                                            <a class="product-color-variation-btn red selected" data-toggle="tooltip" data-placement="top" title="Red">
+                                                <span class="product-color-variation-label">Red</span>
+                                            </a>
+                                        </div>
+                                        <div class="variation">
+                                            <a class="product-color-variation-btn black" data-toggle="tooltip" data-placement="top" title="Black">
+                                                <span class="product-color-variation-label">Black</span>
+                                            </a>
+                                        </div>
+                                        <div class="variation">
+                                            <a class="product-color-variation-btn pink" data-toggle="tooltip" data-placement="top" title="Pink">
+                                                <span class="product-color-variation-label">Pink</span>
+                                            </a>
+                                        </div>
+                                        <div class="variation">
+                                            <a class="product-color-variation-btn blue" data-toggle="tooltip" data-placement="top" title="Blue">
+                                                <span class="product-color-variation-label">Blue</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-size-variations d-flex align-items-center mb--15">
+                                    <p class="variation-label">Size:</p>
+                                    <div class="product-size-variation variation-wrapper">
+                                        <div class="variation">
+                                            <a class="product-size-variation-btn selected" data-toggle="tooltip" data-placement="top" title="S">
+                                                <span class="product-size-variation-label">S</span>
+                                            </a>
+                                        </div>
+                                        <div class="variation">
+                                            <a class="product-size-variation-btn" data-toggle="tooltip" data-placement="top" title="M">
+                                                <span class="product-size-variation-label">M</span>
+                                            </a>
+                                        </div>
+                                        <div class="variation">
+                                            <a class="product-size-variation-btn" data-toggle="tooltip" data-placement="top" title="L">
+                                                <span class="product-size-variation-label">L</span>
+                                            </a>
+                                        </div>
+                                        <div class="variation">
+                                            <a class="product-size-variation-btn" data-toggle="tooltip" data-placement="top" title="XL">
+                                                <span class="product-size-variation-label">XL</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="" class="reset_variations">Clear</a>
+                            </form>
+                            <div class="product-action d-flex flex-sm-row flex-column align-items-sm-center align-items-start mb--30">
+                                <div class="quantity-wrapper d-flex align-items-center mr--30 mr-xs--0 mb-xs--30">
+                                    <label class="quantity-label" for="quick-qty">Quantity:</label>
+                                    <div class="quantity">
+                                        <input type="number" class="quantity-input" name="qty" id="quick-qty" value="1" min="1">
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2" onclick="window.location.href='cart.html'">
+                                    Add To Cart
+                                </button>
+                            </div>
+                            <div class="product-footer-meta">
+                                <p><span>Category:</span>
+                                    <a href="shop.html">Full Sweater</a>,
+                                    <a href="shop.html">SweatShirt</a>,
+                                    <a href="shop.html">Jacket</a>,
+                                    <a href="shop.html">Blazer</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Qicuk View Modal End -->
+    </div>
+    <!-- Main Wrapper End -->
 {% endblock %}
