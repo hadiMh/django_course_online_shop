@@ -104,7 +104,7 @@ INDEX:
 *****************************/
 html {
   height: 100%;
-  font-size: 62.5%;
+  /*font-size: 62.5%;*/
 }
 
 @media (max-width: 93.6875em) {
