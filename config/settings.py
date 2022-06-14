@@ -45,11 +45,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.humanize',
+
+    # third party apps
+    'jalali_date',
+
     # local apps
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
+    'persian_translate.apps.PersianTranslateConfig',
 
     # third party apps
     'rosetta',

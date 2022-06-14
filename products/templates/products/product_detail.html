@@ -4,6 +4,10 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% load comment_tags %}
+{% load jalali_tags %}
+{% load humanize %}
+
+{% load persian_translation_tags %}
 
 {% block content %}
     <!-- Main Wrapper Start -->
@@ -27,7 +31,7 @@
                                     {{ product.description }}
                                 </p>
                                 <div class="my-5 py-5 product-price-wrapper mb--25">
-                                    <span class="money text-success">{{ product.price }} {% trans '$' %}</span>
+                                    <span class="money text-success">{{ product.price|intcomma:False|translate_number }} {% trans '$' %}</span>
                                     <span class="price-separator">-</span>
                                     <span class="money old-price text-danger">۲۱۰,۰۰۰ تومان</span>
                                 </div>
@@ -119,8 +123,8 @@
                                                                 <div class="d-flex flex-sm-row flex-row">
                                                                     <img src="{% static 'img/others/comment-1.jpg' %}" alt="Review Avatar" class="review__avatar p-3">
                                                                     <div>
-                                                                        <div class="review__meta">
-                                                                            <span class="review__published-date">{{ comment.datetime_created }}</span>
+                                                                        <div class="review__meta" dir="ltr">
+                                                                            <span class="review__published-date">{{ comment.datetime_created|to_jalali:'%Y %B %d'|translate_number }}</span>
                                                                             <span class="review__dash">-</span>
                                                                             <strong class="review__author px-4">{{ comment.author.username }}</strong>
                                                                         </div>
