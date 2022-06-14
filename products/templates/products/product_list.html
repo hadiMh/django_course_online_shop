@@ -34,7 +34,9 @@
                                             <div class="product-inner">
                                                 <figure class="product-image">
                                                     <a href="{{ product.get_absolute_url }}">
-                                                        <img src="https://dkstatics-public.digikala.com/digikala-products/15d774761e234a15c1c559ac540963baad9e229f_1631704695.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90" alt="Products">
+                                                        {% if product.image %}
+                                                            <img src="{{ product.image.url }}" alt="Products">
+                                                        {% endif %}
                                                     </a>
                                                     <div class="ShoppingYar-product-action">
                                                         <div class="product-action d-flex">
