@@ -50,7 +50,7 @@
                         <div class="site-branding" style="margin-right: 30px;">
                             <a href="{% url 'product_list' %}" class="logo">
                                 <figure class="logo--normal d-none d-sm-block">
-                                    <img class="px-5" src="assets/img/codingyar_logo.png" style="max-height: 50px; margin-bottom: -15px;" alt="Logo">
+                                    <img class="px-5" src="{% static 'img/codingyar_logo.png' %}" style="max-height: 50px; margin-bottom: -15px;" alt="Logo">
                                 </figure>
                             </a>
                         </div>
@@ -149,6 +149,8 @@
 {% block content %}
 
 {% endblock %}
+
+{% include 'footer.html' %}
 
 <!-- ************************* JS Files ************************* -->
 

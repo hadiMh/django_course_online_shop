@@ -1,6 +1,7 @@
 {% extends '_base.html' %}
 
 {% block content %}
+{% load i18n %}
 
 <!-- Main Wrapper Start -->
 <div class="wrapper">
@@ -52,9 +53,18 @@
                                                         <a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
                                                     </h3>
                                                     <div class="product-price-wrapper mb--30">
-                                                        <span class="money">{{ product.price }} تومان</span>
+                                                        <span class="money">{{ product.price }} {% translate '$' %}</span>
                                                     </div>
-                                                    <a href="cart.html" class="btn btn-small btn-bg-sand btn-color-dark px-3">اضافه کردن به سبد خرید</a>
+                                                    <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" class="quantity-input" name="quantity" id="qty" value="1" min="1" max="30">
+                                                        <div class="quantity-wrapper">
+                                                            <button type="submit" class="btn btn-small btn-bg-red btn-color-white btn-hover-2">
+                                                                {% trans 'Add to Cart' %}
+                                                            </button>
+                                                        </div>
+                                                    </form>
+{#                                                    <a href="cart.html" class="btn btn-small btn-bg-sand btn-color-dark px-3">اضافه کردن به سبد خرید</a>#}
                                                 </div>
                                             </div>
                                         </div>
@@ -79,33 +89,6 @@
     </div>
     <!-- Main Content Wrapper Start -->
 
-    <!-- Footer Start-->
-    <footer class="footer">
-        <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-9 text-center">
-                        <div class="footer-widget mb--50">
-                            <div class="textwidget">
-                                <img src="assets/img/codingyar_logo.png" alt="Logo">
-                            </div>
-                        </div>
-                        <div class="footer-widget mb--50 pb--1">
-                            <ul class="footer-menu">
-                                <li><a href="">درباره ما</a></li>
-                                <li><a href="">قوانین و مقررات</a></li>
-                                <li><a href="">تماس با ما</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-widget">
-                            Codingyar.com © | all rights reserved
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer End-->
 
     <!-- Search form Popup Start -->
     <div class="searchform__popup" id="searchForm">
