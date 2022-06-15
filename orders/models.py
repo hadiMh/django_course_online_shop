@@ -14,11 +14,16 @@ class Order(models.Model):
 
     order_notes = models.CharField(_('Order Notes'), max_length=700, blank=True)
 
+    zarinpal_authority = models.CharField(max_length=255, blank=True)
+
     datetime_created = models.DateTimeField(_('Created'), auto_now_add=True)
     datetime_modified = models.DateTimeField(_('Modified'), auto_now=True)
 
     def __str__(self):
         return f'Order {self.id}'
+
+    def get_total_price(self):
+        return sum(item.quantity * item.price for item in self.items.all())
 
 
 class OrderItem(models.Model):
